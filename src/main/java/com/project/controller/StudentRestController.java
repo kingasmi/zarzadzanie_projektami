@@ -35,8 +35,8 @@ public class StudentRestController { // cześć wspólną adresu, wstawianą prz
 	//PRZED KAŻDĄ Z PONIŻSZYCH METOD JEST UMIESZCZONA ADNOTACJA (@GetMapping, PostMapping, ... ), KTÓRA OKREŚLA
 	//RODZAJ METODY HTTP, A TAKŻE ADRES I PARAMETRY ŻĄDANIA
 	
-	//Przykład żądania wywołującego metodę: GET http://localhost:8080/api/studenty/1
-	@GetMapping("/studenty/{studentId}")ResponseEntity<Student> getStudent(@PathVariable Integer studentId) {// @PathVariable oznacza, że wartość
+	//Przykład żądania wywołującego metodę: GET http://localhost:8080/api/studenci/1
+	@GetMapping("/studenci/{studentId}")ResponseEntity<Student> getStudent(@PathVariable Integer studentId) {// @PathVariable oznacza, że wartość
 	return ResponseEntity.of(studentService.getStudent(studentId)); // parametru przekazywana jest w ścieżce
 	}
 		
@@ -72,16 +72,16 @@ public class StudentRestController { // cześć wspólną adresu, wstawianą prz
 		}).orElseGet(() -> ResponseEntity.notFound().build()); // 404 - Not found
 	}
 	
-	//Przykład żądania wywołującego metodę: http://localhost:8080/api/studenty?page=0&size=10&sort=nazwa,desc
+	//Przykład żądania wywołującego metodę: http://localhost:8080/api/studenci?page=0&size=10&sort=nazwa,desc
 	@GetMapping(value = "/studenci")
 	Page<Student> getStudenci(Pageable pageable) { // @RequestHeader HttpHeaders headers – jeżeli potrzebny
 		return studentService.getStudenci(pageable); // byłby nagłówek, wystarczy dodać drugą zmienną z adnotacją
 	}
 	
-	//Przykład żądania wywołującego metodę: GET http://localhost:8080/api/studenty?nazwa=webowa
+	//Przykład żądania wywołującego metodę: GET http://localhost:8080/api/studenci?nazwa=webowa
 	//Metoda zostanie wywołana tylko, gdy w żądaniu będzie przesyłana wartość parametru nazwa.
 	@GetMapping(value = "/studenci", params="imie")
-	Page<Student> getStudentyByImie(@RequestParam String imie, Pageable pageable) {
+	Page<Student> getstudenciByImie(@RequestParam String imie, Pageable pageable) {
 		return studentService.searchByImie(imie, pageable);
 	}
 }

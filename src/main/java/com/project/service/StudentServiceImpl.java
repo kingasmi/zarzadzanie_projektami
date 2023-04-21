@@ -25,8 +25,7 @@ public class StudentServiceImpl implements StudentService{
 	
 	@Override
 	public Student setStudent(Student student) {
-	//TODO
-	return null;
+		return studentRepository.save(student);
 	}
 	
 	@Override
@@ -36,8 +35,7 @@ public class StudentServiceImpl implements StudentService{
 	
 	@Override
 	public Page<Student> getStudenci(Pageable pageable) {
-	//TODO
-	return null;
+		return studentRepository.findAll(pageable);
 	}
 	@Override
 	public Page<Student> searchByImie(String imie, Pageable pageable) {

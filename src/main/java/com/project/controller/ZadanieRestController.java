@@ -32,11 +32,11 @@ public class ZadanieRestController {
 	}
 	
 	@GetMapping("/zadania/{zadanieId}")
-	ResponseEntity<Zadanie> getZadanie(@PathVariable Integer zadanieId) {// @PathVariable oznacza, że wartość
+	ResponseEntity<Zadanie> getZadanie(@PathVariable Integer zadanieId) {// pobieranie zadania
 		return ResponseEntity.of(zadanieService.getZadanie(zadanieId)); 
 	}
 		
-	@PostMapping(path = "/zadania")
+	@PostMapping(path = "/zadania")//tworzenie zadania
 	ResponseEntity<Void> createZadanie(@Valid @RequestBody Zadanie zadanie) {
 		
 		Zadanie createdZadanie = zadanieService.setZadanie(zadanie);

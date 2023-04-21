@@ -25,8 +25,7 @@ public class ZadanieServiceImpl  implements ZadanieService{
 	
 	@Override
 	public Zadanie setZadanie(Zadanie zadanie) {
-	//TODO
-	return null;
+	return zadanieRepository.save(zadanie);
 	}
 	
 	@Override
@@ -36,8 +35,7 @@ public class ZadanieServiceImpl  implements ZadanieService{
 	
 	@Override
 	public Page<Zadanie> getZadanie(Pageable pageable) {
-	//TODO
-	return null;
+		return zadanieRepository.findAll(pageable);
 	}
 	@Override
 	public Page<Zadanie> searchByNazwa(String nazwa, Pageable pageable) {
