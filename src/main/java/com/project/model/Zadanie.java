@@ -13,6 +13,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -36,7 +37,7 @@ public class Zadanie {
 	private String opis;
 	
 	@CreationTimestamp
-	@NotBlank(message = "Pole dataczas utworzenia nie może być puste!")
+	@NotNull(message = "Pole dataczas utworzenia nie może być puste!")
 	@Column(name = "dataczas_dodania", nullable = false, updatable = false)
 	private LocalDateTime dataCzasDodania;
 	

@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import com.project.model.Projekt;
 import com.project.model.Zadanie;
 import com.project.repository.ZadanieRepository;
 
@@ -13,7 +15,7 @@ public class ZadanieServiceImpl  implements ZadanieService{
 
 	private ZadanieRepository zadanieRepository;
 	
-	@Autowired //adnotację można pomijać, jeżeli nie ma kilku wersji konstruktora
+	@Autowired
 	public ZadanieServiceImpl(ZadanieRepository zadanieRepository) {
 	this.zadanieRepository = zadanieRepository;
 	}
@@ -29,12 +31,12 @@ public class ZadanieServiceImpl  implements ZadanieService{
 	}
 	
 	@Override
-	public void deleteZadanie(Integer projektId) {
-	//TODO
+	public void deleteZadanie(Integer zadanieId) {
+		//TODO
 	}
 	
 	@Override
-	public Page<Zadanie> getZadanie(Pageable pageable) {
+	public Page<Zadanie> getZadania(Pageable pageable) {
 		return zadanieRepository.findAll(pageable);
 	}
 	@Override

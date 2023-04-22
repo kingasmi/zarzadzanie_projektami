@@ -38,7 +38,6 @@ public class ZadanieRestController {
 		
 	@PostMapping(path = "/zadania")//tworzenie zadania
 	ResponseEntity<Void> createZadanie(@Valid @RequestBody Zadanie zadanie) {
-		
 		Zadanie createdZadanie = zadanieService.setZadanie(zadanie);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest() 
 				.path("/{zadanieId}").buildAndExpand(createdZadanie.getZadanieId()).toUri();
@@ -68,7 +67,7 @@ public class ZadanieRestController {
 	
 	@GetMapping(value = "/zadania")
 	Page<Zadanie> getZadania(Pageable pageable) { 
-		return zadanieService.getZadanie(pageable);
+		return zadanieService.getZadania(pageable);
 	}
 	
 	
